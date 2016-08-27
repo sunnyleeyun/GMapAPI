@@ -8,7 +8,29 @@
 
 import UIKit
 import GoogleMaps
+import UIKit
+import GoogleMaps
 
+class ViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let camera = GMSCameraPosition.cameraWithLatitude(23.5,
+                                                          longitude: 121, zoom: 6)
+        let mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
+        mapView.myLocationEnabled = true
+        self.view = mapView
+        
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2DMake(23.5, 121)
+        marker.title = "Sydney"
+        marker.snippet = "Australia"
+        marker.map = mapView
+    }
+}
+
+/*
 class ViewController: UIViewController {
     
     var placesClient: GMSPlacesClient?
@@ -17,7 +39,7 @@ class ViewController: UIViewController {
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var addressLabel: UILabel!
     
-    override func viewDidLoad() {
+    ovxerride func viewDidLoad() {
         super.viewDidLoad()
         placesClient = GMSPlacesClient()
     }
@@ -51,7 +73,7 @@ class ViewController: UIViewController {
 
 
 
-/*
+
 import UIKit
 import GoogleMaps
 

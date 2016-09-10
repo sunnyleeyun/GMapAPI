@@ -7,17 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B62B9241D8448ED006119C6 /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B62B9231D8448ED006119C6 /* SearchResultsController.swift */; };
 		9BA216F01D70226A0089A3A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA216EF1D70226A0089A3A8 /* AppDelegate.swift */; };
 		9BA216F21D70226A0089A3A8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA216F11D70226A0089A3A8 /* ViewController.swift */; };
 		9BA216F51D70226A0089A3A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BA216F31D70226A0089A3A8 /* Main.storyboard */; };
 		9BA216F71D70226A0089A3A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BA216F61D70226A0089A3A8 /* Assets.xcassets */; };
 		9BA216FA1D70226A0089A3A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BA216F81D70226A0089A3A8 /* LaunchScreen.storyboard */; };
-		A4ECB76A7A4DDA523F75ABE2 /* libPods-GMapSwift.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40626C68D5960C27749AD324 /* libPods-GMapSwift.a */; };
+		C0CB3D8D0CA7FC43AFA75C9F /* Pods_GMapSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3626FD5791B30687C623357 /* Pods_GMapSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		40626C68D5960C27749AD324 /* libPods-GMapSwift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GMapSwift.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99A2950AA62FB0F4E96C5034 /* Pods-GMapSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GMapSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-GMapSwift/Pods-GMapSwift.release.xcconfig"; sourceTree = "<group>"; };
+		9B62B9231D8448ED006119C6 /* SearchResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsController.swift; sourceTree = "<group>"; };
 		9BA216EC1D70226A0089A3A8 /* GMapSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GMapSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BA216EF1D70226A0089A3A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BA216F11D70226A0089A3A8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -26,6 +27,7 @@
 		9BA216F91D70226A0089A3A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9BA216FB1D70226A0089A3A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D767E9CEEA4DFE9AC6764FE /* Pods-GMapSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GMapSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GMapSwift/Pods-GMapSwift.debug.xcconfig"; sourceTree = "<group>"; };
+		B3626FD5791B30687C623357 /* Pods_GMapSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GMapSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,7 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4ECB76A7A4DDA523F75ABE2 /* libPods-GMapSwift.a in Frameworks */,
+				C0CB3D8D0CA7FC43AFA75C9F /* Pods_GMapSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,7 +45,7 @@
 		445D06C7626B44501D69F067 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				40626C68D5960C27749AD324 /* libPods-GMapSwift.a */,
+				B3626FD5791B30687C623357 /* Pods_GMapSwift.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -80,6 +82,7 @@
 			children = (
 				9BA216EF1D70226A0089A3A8 /* AppDelegate.swift */,
 				9BA216F11D70226A0089A3A8 /* ViewController.swift */,
+				9B62B9231D8448ED006119C6 /* SearchResultsController.swift */,
 				9BA216F31D70226A0089A3A8 /* Main.storyboard */,
 				9BA216F61D70226A0089A3A8 /* Assets.xcassets */,
 				9BA216F81D70226A0089A3A8 /* LaunchScreen.storyboard */,
@@ -212,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BA216F21D70226A0089A3A8 /* ViewController.swift in Sources */,
+				9B62B9241D8448ED006119C6 /* SearchResultsController.swift in Sources */,
 				9BA216F01D70226A0089A3A8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,6 +331,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GMapSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sunnyleeyun.GMapSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -339,6 +344,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GMapSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sunnyleeyun.GMapSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";

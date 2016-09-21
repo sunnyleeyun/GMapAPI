@@ -12,7 +12,7 @@ import GoogleMaps
 
 
 class ViewController: UIViewController, UISearchBarDelegate, LocateOnTheMap {
-    
+    //
     
     let locationManager = CLLocationManager()
 

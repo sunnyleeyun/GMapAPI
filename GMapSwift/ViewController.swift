@@ -9,14 +9,17 @@
 
 import UIKit
 import GoogleMaps
+import MapKit
+import CoreLocation
 
 
-class ViewController: UIViewController, UISearchBarDelegate, LocateOnTheMap {
+class ViewController: UIViewController, CLLocationManagerDelegate, UISearchBarDelegate, LocateOnTheMap {
     
     
-    let locationManager = CLLocationManager()
+    var locationManager:CLLocationManager!
 
-    @IBOutlet weak var googleMapsContainer: UIView!
+    @IBOutlet weak var myMap: MKMapView!
+    //@IBOutlet weak var googleMapsContainer: UIView!
     var googleMapsView: GMSMapView!
     //var googleMapsView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
 
@@ -31,20 +34,58 @@ class ViewController: UIViewController, UISearchBarDelegate, LocateOnTheMap {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        locationManager.delegate = self
+        //產生CLLocationManager，並要求授權
+        locationManager = CLLocationManager()
         locationManager.requestWhenInUseAuthorization()
         
+        //得到座標
+        let coordinate = locationManager.location?.coordinate
+        print("緯度：\(coordinate?.latitude)")
+        print("經度：\(coordinate?.longitude)")
+
+        //直向縮放
+        let latDelta:CLLocationDegrees = 0.01
+        //橫向縮放
+        let lonDelta:CLLocationDegrees = 0.01
+        //從直向縮放與橫向縮放產生範圍
+        let span:MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lonDelta)
+        //從座標與縮放範圍產生顯示範圍
+        if coordinate != nil{
+            let region:MKCoordinateRegion = MKCoordinateRegionMake(coordinate!, span)
+            //讓地圖秀出區域
+            myMap.setRegion(region, animated: true)
+        }
+        
+        //設定準確度
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        //設定活動模式
+        locationManager.activityType = .Fitness
+        //設定delegate
+        locationManager.delegate = self
+        //開始更新位置資訊
+        locationManager.startUpdatingLocation()
+        
+        //設定userTrackingMode
+        myMap.userTrackingMode = .FollowWithHeading
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         
-        self.googleMapsView = GMSMapView(frame: self.googleMapsContainer.frame)
+        self.googleMapsView = GMSMapView(frame: self.myMap.frame)
         self.view.addSubview(self.googleMapsView)
         
         searchResultController = SearchResultsController()
         searchResultController.delegate = self
     }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
+        let coordinate = locations[0].coordinate //拿到目前座標
+        
+        print("緯度：\(coordinate.latitude)")
+        print("經度：\(coordinate.longitude)")
+    }
+    
     func locateWithLongitude(lon: Double, andLatitude lat: Double, andTitle title: String) {
         dispatch_async(dispatch_get_main_queue()) { () -> Void in
             let position = CLLocationCoordinate2DMake(lat, lon)
@@ -77,35 +118,5 @@ class ViewController: UIViewController, UISearchBarDelegate, LocateOnTheMap {
 }
 
 
-// MARK: - CLLocationManagerDelegate
-//1
-extension ViewController: CLLocationManagerDelegate {
-    // 2
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        // 3
-        if status == .AuthorizedWhenInUse {
-            
-            // 4
-            locationManager.startUpdatingLocation()
-            
-            //5
-            googleMapsView.myLocationEnabled = true
-            googleMapsView.settings.myLocationButton = true
-        }
-    }
-    
-    // 6
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first {
-            
-            // 7
-            googleMapsView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
-            
-            // 8
-            locationManager.stopUpdatingLocation()
-        }
-        
-    }
-}
 
 
